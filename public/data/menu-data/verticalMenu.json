@@ -1,0 +1,62 @@
+{
+	"menu": [
+		{
+			"url": "/",
+			"name": "Home",
+			"icon": "home",
+			"slug": "home"
+		},
+        {
+            "url": "/users",
+            "name": "Users",
+            "icon": "users",
+            "slug": "users"
+        },
+        {
+            "url": "/blog-category",
+            "name": "Blog Category",
+            "icon": "package",
+            "slug": "blog-category"
+        },
+        {
+            "url": "/blog",
+            "name": "Blog",
+            "icon": "file",
+            "slug": "blog"
+        },
+        {
+            "url": "/og-images",
+            "name": "Images",
+            "icon": "image",
+            "slug": "og-images"
+        },
+        {
+            "url": "/contacts",
+            "name": "Contacts",
+            "icon": "user",
+            "slug": "contacts"
+        },
+        {
+            "url": "/job-portal",
+            "name": "Job Portal",
+            "icon": "package",
+            "slug": "Job Portal"
+        },
+
+        {
+            "url": "/seo-service",
+            "name": "Seo Service",
+            "icon": "package",
+            "slug": "Seo Service"
+        },
+
+        {
+            "url": "/case-study",
+            "name": "Case Study",
+            "icon": "file",
+            "slug": "Case Study"
+        }
+
+
+	]
+}

@@ -1,0 +1,112 @@
+{
+	"menu": [
+		{
+			"url": "/",
+			"name": "Home",
+			"icon": "home",
+			"slug": "home"
+		},
+        {
+            "url": "/users",
+            "name": "Users",
+            "icon": "users",
+            "slug": "users"
+        },
+        {
+            "url": "/roles",
+            "name": "Roles",
+            "icon": "shield",
+            "slug": "roles"
+        },
+        {
+            "url": "/blog-category",
+            "name": "Blog Categories",
+            "icon": "package",
+            "slug": "blog-category"
+        },
+        {
+            "url": "/blog",
+            "name": "Blogs",
+            "icon": "file",
+            "slug": "blog"
+        },
+        {
+            "url": "/og-images",
+            "name": "Images",
+            "icon": "image",
+            "slug": "og-images"
+        },
+        {
+            "url": "/subscribe",
+            "name": "Subscribe",
+            "icon": "bookmark",
+            "slug": "subscribe"
+        },
+        {
+            "url": "/contacts",
+            "name": "Contacts",
+            "icon": "user",
+            "slug": "contacts"
+        },
+        {
+            "url": "/ai-page-contacts",
+            "name": "AI Page Contacts",
+            "icon": "phone",
+            "slug": "ai-page-contacts"
+        },
+        {
+            "url": "/ai-seo-pages",
+            "name": "AI SEO Pages",
+            "icon": "file-text",
+            "slug": "ai-seo-pages"
+        },
+        {
+            "url": "/company-deck",
+            "name": "Company Deck",
+            "icon": "bell",
+            "slug": "company-deck"
+        },
+        {
+            "url": "/seo-service",
+            "name": "SEO Service",
+            "icon": "package",
+            "slug": "seo-service"
+        },
+        {
+            "url": "/case-study",
+            "name": "Case Study",
+            "icon": "file",
+            "slug": "case-study"
+        },
+        {
+            "url": "/job-portal",
+            "name": "Job Portals",
+            "icon": "file",
+            "slug": "job-portal"
+        },
+        {
+            "url": "/job/application",
+            "name": "Job Applications",
+            "icon": "book-open",
+            "slug": "job-application"
+        },
+        {
+            "url": "/status-label",
+            "name": "Status Label",
+            "icon": "tag",
+            "slug": "status-label"
+        },
+        {
+            "url": "/backup",
+            "name": "Backup",
+            "icon": "download",
+            "slug": "backup"
+        },
+        {
+            "url": "/export",
+            "name": "Export",
+            "icon": "database",
+            "slug": "export"
+        }
+	]
+}

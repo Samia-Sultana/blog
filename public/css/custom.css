@@ -1,0 +1,29 @@
+
+.text-custom-blue {
+    color: #002A64;
+  }
+  .text-description {
+    color: #5B5B5B;
+    font-size: 16px;
+  }
+
+  .custom-css-blog ul{
+	list-style-type: disc;
+	 margin: 2% 0% 2% 5%;
+  }
+  
+  .custom-css-blog p{
+	margin-bottom: 2%;
+  }
+
+  .text-title{
+	font-size: 36px;
+	font-weight: 700;
+  }
+
+  .fixed {
+    position: fixed;
+    top: 118px;
+    z-index: 1000;
+    width: 16%; /* Adjust as necessary */
+}

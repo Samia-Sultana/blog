@@ -1,0 +1,108 @@
+<?php
+
+namespace App\Http\Controllers\Subscribe;
+
+use App\Exports\SubscribeViserXExport;
+use App\Http\Controllers\Controller;
+use App\Mail\SubscribeResponseMail;
+use App\Mail\ViserXMail;
+use App\Models\SubscribeViserX;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
+
+class SubscribeController extends Controller
+{
+    public function store(Request $request)
+    {
+        try {
+            $request->validate([
+                'email' => 'required|email|max:255',
+            ]);
+
+            $subscribe = SubscribeViserX::create([
+                'email' => $request->email,
+            ]);
+
+            Mail::to($subscribe->email)->send(new SubscribeResponseMail());
+
+            $adminMailBody = $this->subscribeMailBodyForAdmin($subscribe);
+
+            $ccList = config('viserxMailConfigList');
+
+            Mail::to(env('CONTACT_EMAIL_BD'))->cc($ccList)->send(new ViserXMail($adminMailBody, 'VISER X | Request for Newsletter Subscription',));
+
+            return response()->json(['message' => 'Subscribed successfully!'], 200);
+
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json(['error' => $e->errors()], 422);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'An unexpected error occurred. Please try again.'. $e->getMessage()], 500);
+        }
+    }
+
+    private function subscribeMailBodyForAdmin($companyDeck)
+    {
+        $submittedAt = now()->format('F d, Y, h:i A');
+        return <<<HTML
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0px -5px 14px 5px rgba(0, 0, 0, 0.1);">
+            <tr>
+                <td align="center" style="background-color: #f4f8fc; padding: 20px;">
+                    <h1 style="font-size: 24px; font-weight: bold; margin: 0;"><span style="font-weight: bold; color: #007bff;">VISER</span> X</h1>
+                    <p style="margin: 5px 0 0 0; font-size: 16px; color: #666;">New Subscriber for VISER X Newsletter</p>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 20px 40px; color: #333333; line-height: 1.6;">
+                    <h5 style="margin: 15px 0; font-size: 14px; font-weight: bold;">Hello,</h5>
+                    <p style="margin: 15px 0; font-size: 14px;">
+                        You've received a new Subscribe for updates and news submission. Here are the details:
+                    </p>
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f8f9fa; border-radius: 5px; padding: 15px; margin: 20px 0; border: 1px solid black">
+                        <tr><td style="font-weight: bold; padding: 8px 0;">Email:</td><td>{$companyDeck->email}</td></tr>
+                        <tr><td style="font-weight: bold; padding: 8px 0;">Submitted At:</td><td>{$submittedAt}</td></tr>
+                    </table>
+                    <p style="margin: 15px 0; font-size: 14px;">You can view this submission in the admin panel, please <a href="https://api.viserx.com/subscribe" target="_blank">click here.</a></p>
+                </td>
+            </tr>
+        </table>
+        HTML;
+    }
+
+    public function index(Request $request)
+    {
+        $breadcrumbs = [
+            ['link' => "/subscribe", 'name' => "Subscribe"], ['name' => "Index"]
+        ];
+
+        $email = $request->input('email');
+        $startDate = $request->input('from_date');
+        $endDate = $request->input('to_date');
+        $perPage = $request->input('per_page', 10);
+
+        $sortBy = $request->input('sort_by', 'created_at');
+        $sortOrder = $request->input('sort_order', 'desc');
+
+        $data = SubscribeViserX::query()
+                    ->when($email, function ($q) use ($email) {
+                        $q->where('email', 'like', "%{$email}%");
+                    })
+                    ->when($startDate, function ($q) use ($startDate) {
+                        $q->whereDate('created_at', '>=', $startDate);
+                    })
+                    ->when($endDate, function ($q) use ($endDate) {
+                        $q->whereDate('created_at', '<=', $endDate);
+                    })
+                    ->orderBy($sortBy, $sortOrder)
+                    ->paginate($perPage)
+                    ->appends($request->query());
+        return view('subscribe.index', compact('data', 'breadcrumbs', 'perPage'));
+    }
+
+    public function export(Request $request)
+    {
+        $filters = $request->only(['email', 'from_date', 'to_date', 'per_page']);
+
+        return Excel::download(new SubscribeViserXExport($filters, $request->per_page ?? 10), 'subscribe.xlsx');
+    }
+}
