@@ -89,6 +89,34 @@ class CaseStudyRepository
         }
     }
 
+    public function apiShow($category, $slug)
+    {
+        try {
+            $data = $this->model->where('category', $category)
+                ->where('slug', $slug)
+                ->first();
+
+            if (!$data) {
+                return [];
+            }
+
+            return [
+                'status' => 'success',
+                'message' => 'Case Study fetched successfully.',
+                'data' => $data,
+                'related_case_studies' => $this->model->where('category', $category)
+                    ->where('slug', '!=', $slug)
+                    ->where('ispublished', 1)
+                    ->orderBy('id', 'desc')
+                    ->take(3)
+                    ->get()
+            ];
+        } catch (\Exception $e) {
+            error_log($e->getMessage());
+            return [];
+        }
+    }
+
 
     private function checkPageName($name){
 

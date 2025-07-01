@@ -247,7 +247,10 @@ class BlogController extends Controller
         $data = $this->repository->apiIndex($category, $search);
 
 
-        return response()->json($data);
+        //return response()->json($data);
+
+        return view('blogs', ['blogs' => $data]);
+
     }
 
     function slugify($str)
@@ -282,86 +285,7 @@ class BlogController extends Controller
                 return null;
             }
 
-            if ($data->index_status == 1) {
-                $indexStatus = "index";
-            } else {
-                $indexStatus = "no-index";
-            }
-
-
-            $frontendUrl = env('FRONTEND_URL');
-
-            $fixedLink = [];
-            $fixedLink[] = [
-                'key' => 'canonical',
-                'value' => $frontendUrl . '/blog/' . $this->slugify($data->blogCategories[0]->name) . '/' .  $slug,
-            ];
-
-            foreach ($data->postLinks as $link) {
-                $fixedLink[] = [
-                    'key' => $link->key,
-                    'value' => $link->value,
-                ];
-            }
-
-            $fixedScript = [];
-            $fixedScript[] = [
-                'type' => "application/ld+json",
-                'script' => json_encode([
-                    "@context" => "https://schema.org",
-                    "@type" => "BlogPosting",
-                    "mainEntityOfPage" => [
-                        "@type" => "WebPage",
-                        "@id" => $frontendUrl . '/blog/' . $slug
-                    ],
-                    "headline" => $data->title,
-                    "description" => $data->meta_description,
-                    "image" => (!empty($data->featured_image) ? asset($data->featured_image) : null),
-                    "author" => [
-                        "@type" => "Person",
-                        "name" => $data->authors->name,
-                        "url" => null,
-                    ],
-                    "publisher" => [
-                        "@type" => "Organization",
-                        "name" => "VISER X",
-                    ],
-                    "datePublished" => $data->published_at,
-                    "dateModified" => $data->updated_at,
-                ])
-            ];
-
-
-            foreach ($data->postScripts as $script) {
-                $fixedScript[] = [
-                    'type' => $script->type,
-                    'script' => $script->script,
-                ];
-            }
-
-            return response()->json([
-
-                'seo' => [
-                    'title' => $data->meta_title ? str_replace("%currentyear%", date("Y"), $data->meta_title) : null,
-                    'description' => $data->meta_description ?? null,
-                    'robots' => $indexStatus,
-                    'openGraph' => [
-                        'type' => "website",
-                        'locale' => "en_IE",
-                        'url' => $frontendUrl . '/blog/' . $slug,
-                        'site_name' => "VISER X",
-                        'image' => [
-                            'url' => !empty($data->featured_image) ? asset($data->featured_image) : null,
-                            'width' => 800,
-                            'height' => 600,
-                            'alt' => "Blog Post",
-                        ],
-                    ],
-                    'links' => $fixedLink,
-                    'scripts' => $fixedScript,
-
-                ],
-                'blog' => [
+            $blog = [
                     'title' => $data->title ?? null,
                     'author' => $data->authors->name ?? null,
                     'published_at' => $data->published_at ?? null,
@@ -379,20 +303,16 @@ class BlogController extends Controller
                             'description' => $content->description,
                         ];
                     })->toArray(),
-                ],
+                ];
 
 
-            ], 200);
-        } catch (\Exception $e) {
-            return null;
-            return $e->getMessage();
-            return response()->json(
-                [
-                    'status' => 'error',
-                    'message' => 'Blog not found'
-                ],
-                404
-            );
+            return view('blog-single-fullwidth', compact('blog'));
+        }catch (\Exception $e) {
+            // Log the error message
+            \Log::error('Error fetching blog data: ' . $e->getMessage());
+
+            // Return a 404 response or a custom error view
+            return response()->json(['error' => 'Blog not found'], 404);
         }
     }
 

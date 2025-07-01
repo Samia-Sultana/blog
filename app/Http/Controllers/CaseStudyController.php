@@ -53,7 +53,12 @@ class CaseStudyController extends Controller
     {
         $category = $request['category'];
         $data = $this->repository->apiview($category);
-        return response()->json($data);
+        return view('casestudies', compact('data'));
+    }
+    public function apiShow($category, $slug)
+    {
+        $data = $this->repository->apiShow($category, $slug);
+        return view('casestudy-details', compact('data'));
     }
 
     public function create()
