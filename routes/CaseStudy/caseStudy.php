@@ -10,7 +10,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::group(['prefix' => 'case-study'], function () {
 
-        Route::get('/', [CaseStudyController::class, 'view'])->name('case-study');
+        Route::get('/home', [CaseStudyController::class, 'view'])->name('case-study');
 
         Route::get('/create', [CaseStudyController::class, 'create'])->name('case.create');
 

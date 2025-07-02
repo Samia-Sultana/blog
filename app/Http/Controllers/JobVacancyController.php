@@ -70,7 +70,7 @@ class JobVacancyController extends Controller
             "Yearly Salary Review"
         ]);
 
-        $old->about_company = "VISER X LIMITED is a global information technology, software development and digital marketing agency. We have a team of 40+ energetic and talented team members successfully providing software development, web application development and digital marketing services worldwide.";
+        $old->about_company = "Hossain Litigation & Law is a global information technology, software development and digital marketing agency. We have a team of 40+ energetic and talented team members successfully providing software development, web application development and digital marketing services worldwide.";
 
         $old->address ="Dhaka";
 

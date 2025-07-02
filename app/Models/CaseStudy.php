@@ -16,6 +16,9 @@ class CaseStudy extends Model
         'featured_image',
         'category',
         'ispublished',
-        'page_name'
+        'page_name',
+        'challenge',
+        'solution',
+        'results',
     ];
 }

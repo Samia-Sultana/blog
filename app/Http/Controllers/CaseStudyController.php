@@ -78,10 +78,13 @@ class CaseStudyController extends Controller
             'sort_desc' => 'required',
             'category' => 'required',
             'featured_image' => 'required',
+            'challenge' => 'required',
+            'solution' => 'required',
+            'results' => 'required',
 
         ]);
         $data = $this->repository->store($request);
-        return $this->redirectRouteConditionWise($request['category'], $data['id']);
+        return redirect('/case-study/home');
     }
 
     public function edit($id)
@@ -99,7 +102,7 @@ class CaseStudyController extends Controller
         $data = $this->repository->update($request, $id);
 
         if ($data) {
-            return $this->redirectRouteConditionWise($data['category'], $data['id'], true);
+            return redirect('/case-study/home');
         }else{
             return redirect()->route('case-study');
         }

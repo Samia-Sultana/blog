@@ -89,13 +89,13 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('assets/images/logo.png') }}" alt></a>
+                        <a class="navbar-brand" href="{{ url('/home') }}"><img src="{{ asset('assets/images/logo.png') }}" alt></a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse navbar-right navigation-holder">
                         <button class="close-navbar"><i class="ti-close"></i></button>
                         <ul class="nav navbar-nav">
                             <li class="nav navbar-nav">
-                                <a href="{{ url('/') }}">Home</a>
+                                <a href="{{ url('/home') }}">Home</a>
                             </li>
                             <li class="nav navbar-nav">
                                 <a href="{{ url('/about') }}">About</a>
@@ -159,7 +159,7 @@
                                 <div class="entry-details">
                                     <div class="cat">Adovcate, Law</div>
                                     <h3><a href="#">{{ $blog->title }}</a></h3>
-                                    <p>{{ $blog->meta_description}}</p>
+                                    <p>{{ $blog->short_desc}}</p>
 
 
                                     <a href="{{ url('/blog-single-fullwidth/' . \Illuminate\Support\Str::slug($blog->blogCategories[0]->name) . '/' . $blog->slug) }}" class="read-more">Read More</a>
@@ -172,7 +172,43 @@
                             </div>
                             @endforeach
 
-                            <div class="pagination-wrapper pagination-wrapper-left">
+                            @if ($blogs['blogs']->hasPages())
+    <div class="pagination-wrapper pagination-wrapper-left">
+        <ul class="pg-pagination">
+            {{-- Previous Page Link --}}
+            @if ($blogs['blogs']->onFirstPage())
+                <li class="disabled"><span><i class="fi flaticon-back"></i></span></li>
+            @else
+                <li>
+                    <a href="{{ $blogs['blogs']->previousPageUrl() }}" aria-label="Previous">
+                        <i class="fi flaticon-back"></i>
+                    </a>
+                </li>
+            @endif
+
+            {{-- Pagination Elements --}}
+            @foreach ($blogs['blogs']->getUrlRange(1, $blogs['blogs']->lastPage()) as $page => $url)
+                <li class="{{ $page == $blogs['blogs']->currentPage() ? 'active' : '' }}">
+                    <a href="{{ $url }}">{{ $page }}</a>
+                </li>
+            @endforeach
+
+            {{-- Next Page Link --}}
+            @if ($blogs['blogs']->hasMorePages())
+                <li>
+                    <a href="{{ $blogs['blogs']->nextPageUrl() }}" aria-label="Next">
+                        <i class="fi flaticon-next"></i>
+                    </a>
+                </li>
+            @else
+                <li class="disabled"><span><i class="fi flaticon-next"></i></span></li>
+            @endif
+        </ul>
+    </div>
+@endif
+
+
+                            {{-- <div class="pagination-wrapper pagination-wrapper-left">
                                 <ul class="pg-pagination">
                                     <li>
                                         <a href="#" aria-label="Previous">
@@ -188,7 +224,9 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> --}}
+
+
                         </div>
                     </div>
                     <div class="col col-md-4">

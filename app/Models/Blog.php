@@ -24,7 +24,7 @@ class Blog extends Model
         // seo features
         'index_status',
         'meta_title',
-        'meta_description',
+        'short_desc',
 
         'ispublished',
 

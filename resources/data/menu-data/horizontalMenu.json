@@ -17,7 +17,14 @@
         "name": "Blog Category",
         "icon": "package",
         "slug": "blog-category"
+    },
+    {
+        "url": "/casestudies",
+        "name": "Case Studies",
+        "icon": "users",
+        "slug": "casestudies"
     }
+
 
   ]
 }

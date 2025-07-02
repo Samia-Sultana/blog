@@ -107,7 +107,7 @@ class BlogController extends Controller
         $data = $this->repository->storeContent($request);
 
         if ($data) {
-            return redirect('/blog/seo/' . $data);
+            return redirect('/back');
         } else {
             return redirect()->route('blog')->with('error', 'Blog failed created.');
         }

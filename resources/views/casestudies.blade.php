@@ -92,7 +92,7 @@
                         <button class="close-navbar"><i class="ti-close"></i></button>
                         <ul class="nav navbar-nav">
                             <li class="active">
-                                <a href="{{ url('/') }}">Home</a>
+                                <a href="{{ url('/home') }}">Home</a>
                             </li>
                             <li class="nav navbar-nav">
                                 <a href="{{ url('/about') }}">About</a>

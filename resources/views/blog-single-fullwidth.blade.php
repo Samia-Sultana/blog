@@ -87,7 +87,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('assets/images/logo.png') }}" alt></a>
+                        <a class="navbar-brand" href="{{ url('/home') }}"><img src="{{ asset('assets/images/logo.png') }}" alt></a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse navbar-right navigation-holder">
                         <button class="close-navbar"><i class="ti-close"></i></button>
@@ -95,7 +95,7 @@
                             <li class="menu-item-has-children">
                                 <a href="#">Home</a>
                                 <ul class="sub-menu">
-                                    <li><a href="{{ url('/') }}">Home Default</a></li>
+                                    <li><a href="{{ url('/home') }}">Home Default</a></li>
                                     <li><a href="index-2.html">Home Style 2</a></li>
                                     <li><a href="index-3.html">Home Single Lawyer</a></li>
                                 </ul>

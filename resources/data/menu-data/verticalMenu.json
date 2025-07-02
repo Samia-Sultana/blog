@@ -7,16 +7,10 @@
 			"slug": "home"
 		},
         {
-            "url": "/users",
-            "name": "Users",
+            "url": "/case-study/home",
+            "name": "Case Studies",
             "icon": "users",
-            "slug": "users"
-        },
-        {
-            "url": "/roles",
-            "name": "Roles",
-            "icon": "shield",
-            "slug": "roles"
+            "slug": "case-study"
         },
         {
             "url": "/blog-category",
@@ -29,18 +23,6 @@
             "name": "Blogs",
             "icon": "file",
             "slug": "blog"
-        },
-        {
-            "url": "/og-images",
-            "name": "Images",
-            "icon": "image",
-            "slug": "og-images"
-        },
-        {
-            "url": "/subscribe",
-            "name": "Subscribe",
-            "icon": "bookmark",
-            "slug": "subscribe"
         },
         {
             "url": "/contacts",

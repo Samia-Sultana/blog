@@ -4,7 +4,7 @@ use App\Http\Controllers\CountryOrCityWisePageContent\CountryOrCityWisePageConte
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'module:ai-seo-pages'])->prefix('ai-seo-pages')->group(function () {
-    Route::get('/', [CountryOrCityWisePageContentController::class, 'index'])->name('ai-seo-pages');
+    Route::get('/home', [CountryOrCityWisePageContentController::class, 'index'])->name('ai-seo-pages');
     Route::get('/create', [CountryOrCityWisePageContentController::class, 'create'])->name('pages.create');
     Route::post('/store', [CountryOrCityWisePageContentController::class, 'store'])->name('pages.store');
     Route::get('/edit/{id}', [CountryOrCityWisePageContentController::class, 'edit'])->name('pages.edit');
@@ -28,6 +28,6 @@ Route::middleware(['auth', 'module:ai-seo-pages'])->prefix('ai-seo-pages')->grou
 });
 
 Route::middleware(['auth', 'module:ai-page-contacts'])->prefix('ai-page-contacts')->group(function () {
-    Route::get('/', [CountryOrCityWisePageContentController::class, 'aiContactIndex'])->name('ai-page-contacts');
-    Route::post('/', [CountryOrCityWisePageContentController::class, 'export'])->name('ai-page-contacts.export');
+    Route::get('/home', [CountryOrCityWisePageContentController::class, 'aiContactIndex'])->name('ai-page-contacts');
+    Route::post('/home', [CountryOrCityWisePageContentController::class, 'export'])->name('ai-page-contacts.export');
 });

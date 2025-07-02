@@ -108,12 +108,12 @@ class ContentCaseStudyController extends Controller
                 "image" => (!empty($data->featured_image) ? asset($data->featured_image) : null),
                 "author" => [
                     "@type" => "Person",
-                    "name" => "VISER X",
+                    "name" => "Hossain Litigation & Law",
                     "url" => null,
                 ],
                 "publisher" => [
                     "@type" => "Organization",
-                    "name" => "VISER X",
+                    "name" => "Hossain Litigation & Law",
                 ],
                 "datePublished" => $data->updated_at,
                 "dateModified" => $data->updated_at,
@@ -132,7 +132,7 @@ class ContentCaseStudyController extends Controller
                     'type' => "website",
                     'locale' => "en_IE",
                     'url' => $frontendUrl . '/case-studies/content-writing-case-studies/' . slugify($case->category) . '/' . $case->slug.'/'. $case->id,
-                    'site_name' => "VISER X",
+                    'site_name' => "Hossain Litigation & Law",
                     'image' => [
                         'url' => !empty($data->featured_image) ? asset($data->featured_image) : null,
                         'width' => 800,

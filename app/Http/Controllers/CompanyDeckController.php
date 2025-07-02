@@ -41,7 +41,7 @@ class CompanyDeckController extends Controller
 
             $ccList = config('viserxMailConfigList');
 
-            Mail::to(env('CONTACT_EMAIL_BD'))->cc($ccList)->send(new ViserXMail($adminMailBody, 'VISER X | New Request for Company Deck'));
+            Mail::to(env('CONTACT_EMAIL_BD'))->cc($ccList)->send(new ViserXMail($adminMailBody, 'Hossain Litigation & Law | New Request for Company Deck'));
 
             return response()->json(['message' => 'Email sent successfully!'], 200);
 
@@ -60,7 +60,7 @@ class CompanyDeckController extends Controller
         <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0px -5px 14px 5px rgba(0, 0, 0, 0.1);">
             <tr>
                 <td align="center" style="background-color: #f4f8fc; padding: 20px;">
-                    <h1 style="font-size: 24px; font-weight: bold; margin: 0;"><span style="font-weight: bold; color: #007bff;">VISER</span> X</h1>
+                    <h1 style="font-size: 24px; font-weight: bold; margin: 0;"><span style="font-weight: bold; color: #007bff;">Hossain Litigation & Law</span> </h1>
                     <p style="margin: 5px 0 0 0; font-size: 16px; color: #666;">New Company Deck Request</p>
                 </td>
             </tr>
