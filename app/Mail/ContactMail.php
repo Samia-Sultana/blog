@@ -48,7 +48,7 @@ class ContactMail extends Mailable implements ShouldQueue
     public function content()
     {
         return new Content(
-            view: 'email.newContactMail',
+            view: 'newContactMail',
             with: ['contact' => $this->contact, 'subject' => $this->mailSubject],
         );
     }

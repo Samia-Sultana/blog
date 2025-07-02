@@ -123,7 +123,7 @@
                             </li>
                             <li><a href="{{ url('/contact') }}">Contact</a></li>
                             <li class="nav-button">
-                                <a href="{{ url('/consultation') }}" class="glow-btn">Free Consultation</a>
+                                <a href="{{ url('/contact') }}" class="glow-btn">Free Consultation</a>
                             </li>
                         </ul>
                     </div><!-- end of nav-collapse -->
@@ -358,7 +358,7 @@
                             </div>
                             <h5>Call us: Mon - Fri: 10AM- 7PM</h5>
                             <h2>+1 (437) 239-8405</h2>
-                            <a href="#" class="theme-btn-s3">Make An Appointment</a>
+                            <a href="{{ url('/contact') }}" class="theme-btn-s3">Make An Appointment</a>
                         </div>
                     </div>
                 </div>
@@ -588,16 +588,16 @@
                                 <div class="widget-title">
                                     <h3>Useful Links</h3>
                                 </div>
-                                <ul>
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">Our services</a></li>
-                                    <li><a href="#">Contact us</a></li>
-                                    <li><a href="#">Blog</a></li>
+ <ul>
+                                    <li><a href="{{ url('/about') }}">About us</a></li>
+                                    <li><a href="{{ url('/services') }}">Our services</a></li>
+                                    <li><a href="{{ url('/contact') }}">Contact us</a></li>
+                                    <li><a href="{{ url('/blogs') }}">Blog</a></li>
                                 </ul>
                                 <ul>
                                     <li><a href="#">Testimonials</a></li>
-                                    <li><a href="#">Case Studies</a></li>
-                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="{{ url('casestudies') }}">Case Studies</a></li>
+                                    <li><a href="{{ url('/faq') }}">FAQ</a></li>
                                 </ul>
                             </div>
                         </div>

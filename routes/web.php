@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\CaseStudyController;
+use App\Http\Controllers\Contact\ContactController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -20,6 +21,8 @@ Route::get('/blog-single-left-sidebar', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+Route::post('/contact/mail', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/blog-single', function () {
     return view('blog-single');
 });

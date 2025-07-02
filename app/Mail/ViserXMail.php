@@ -23,7 +23,7 @@ class ViserXMail extends Mailable implements ShouldQueue
      */
     public function __construct(
                                 $mailContent,
-                                $mailSubject = 'VISER X LIMITED Admistration Mail',
+                                $mailSubject = 'Hossain Litigation and Law Admistration Mail',
                                 )
     {
         $this->mailContent = $mailContent;
@@ -50,7 +50,7 @@ class ViserXMail extends Mailable implements ShouldQueue
     public function content()
     {
         return new Content(
-            view: 'email.viserxMail',
+            view: 'viserxMail',
             with: ['content' => $this->mailContent, 'mailSubject' => $this->mailSubject]
         );
     }

@@ -483,17 +483,16 @@
                                 <div class="widget-title">
                                     <h3>Usefull Links</h3>
                                 </div>
-                                <ul>
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">Our services</a></li>
-                                    <li><a href="#">Contact us</a></li>
-                                    <li><a href="#">Meet team</a></li>
+ <ul>
+                                    <li><a href="{{ url('/about') }}">About us</a></li>
+                                    <li><a href="{{ url('/services') }}">Our services</a></li>
+                                    <li><a href="{{ url('/contact') }}">Contact us</a></li>
+                                    <li><a href="{{ url('/blogs') }}">Blog</a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="#">Provacu Policy</a></li>
                                     <li><a href="#">Testimonials</a></li>
-                                    <li><a href="#">News</a></li>
-                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="{{ url('casestudies') }}">Case Studies</a></li>
+                                    <li><a href="{{ url('/faq') }}">FAQ</a></li>
                                 </ul>
                             </div>
                         </div>

@@ -22,37 +22,27 @@ class ContactController extends Controller
                 'name' => 'required|string|max:255',
                 'phone' => 'required|string|max:255',
                 'email' => 'nullable|email|max:255',
-                'company' => 'nullable|string|max:255',
                 'subject' => 'nullable|string|max:255',
-                'subsubject' => 'nullable|string|max:255',
                 'message' => 'nullable|string|max:255',
             ]);
 
-            $ip = $request->ip();
-            $response = Http::get("http://ip-api.com/json/$ip?fields=country");
-            $country = $response->json()['country'] ?? null;
 
             $contact = new Contact();
             $contact->name = $request->name;
             $contact->phone = $request->phone;
             $contact->email = $request->email;
-            $contact->company = $request->company;
             $contact->subject = $request->subject;
-            $contact->subsubject = $request->subsubject;
             $contact->message = $request->message;
-            $contact->country = $country;
             $contact->save();
 
-            Mail::to($contact->email)->send(new ContactMail($contact, "Thanks For Your Request of Consultation: VISER X - {$contact->subject}"));
+            Mail::to($contact->email)->send(new ContactMail($contact, "Thanks For Your Request of Consultation:  Hossain Litigation and Law - {$contact->subject}"));
             $ccList = config('viserxMailConfigList');
-            $data = $this->contactUsMailBodyForAdmin($contact, $ip);
-            if ($country == 'Bangladesh') {
-                Mail::to(env('CONTACT_EMAIL_BD'))->cc($ccList)->send(new ViserXMail($data, "Request For Consultation: VISER X - {$contact->subject}"));
-            }else{
-                Mail::to(env('CONTACT_EMAIL'))->cc($ccList)->send(new ViserXMail($data, "Request For Consultation: VISER X - {$contact->subject}"));
-            }
+            $data = $this->contactUsMailBodyForAdmin($contact);
+            Mail::to(env('CONTACT_EMAIL'))->cc($ccList)->send(new ViserXMail($data, "Request For Consultation: Hossain Litigation and Law - {$contact->subject}"));
 
-            return response()->json(['message' => 'Contact created successfully'], 201);
+
+           return redirect('/')
+               ->with('success', 'Thanks! Your message has been sent.');
 
         } catch (\Exception $e) {
             Log::error($e->getMessage());
@@ -60,7 +50,7 @@ class ContactController extends Controller
         }
     }
 
-    private function contactUsMailBodyForAdmin($data, $ip)
+    private function contactUsMailBodyForAdmin($data)
     {
         $submittedAt = now()->format('F d, Y, h:i A');
         return <<<HTML
@@ -75,20 +65,18 @@ class ContactController extends Controller
                 <td style="padding: 20px 40px; color: #333333; line-height: 1.6;">
                     <h5 style="margin: 15px 0; font-size: 14px; font-weight: bold;">Hello,</h5>
                     <p style="margin: 15px 0; font-size: 14px;">
-                        A new request for consulation has been submitted from {$ip} ($data->country):
+                        A new request for consulation has been submitted
                     </p>
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f8f9fa; border-radius: 5px; padding: 15px; margin: 20px 0; border: 1px solid black">
                         <tr><td style="font-weight: bold; padding: 8px 0;">Name:</td><td>{$data->name}</td></tr>
                         <tr><td style="font-weight: bold; padding: 8px 0;">Email:</td><td>{$data->email}</td></tr>
                         <tr><td style="font-weight: bold; padding: 8px 0;">Phone:</td><td>{$data->phone}</td></tr>
-                        <tr><td style="font-weight: bold; padding: 8px 0;">Company:</td><td>{$data->company}</td></tr>
                         <tr><td style="font-weight: bold; padding: 8px 0;">Subject:</td><td>{$data->subject}</td></tr>
-                        <tr><td style="font-weight: bold; padding: 8px 0;">Sub-Subject:</td><td>{$data->subsubject}</td></tr>
                         <tr><td style="font-weight: bold; padding: 8px 0;">Message:</td><td>{$data->message}</td></tr>
                         <tr><td style="font-weight: bold; padding: 8px 0;">Submitted At:</td><td>{$submittedAt}</td></tr>
                     </table>
-                    <p style="margin: 15px 0; font-size: 14px;">You can view this submission in the admin panel, please <a href="https://api.viserx.com/contacts" target="_blank">click here.</a></p>
-                    <p style="margin: 15px 0; font-size: 8px;">This email contains confidential information belonging to VISER X and intended only for the recipient. If you are not the intended recipient, please delete it and notify the sender. Unauthorized use is prohibited.</p>
+                    <p style="margin: 15px 0; font-size: 14px;">You can view this submission in the admin panel, please <a href="#" target="_blank">click here.</a></p>
+                    <p style="margin: 15px 0; font-size: 8px;">This email contains confidential information belonging to Hossain Litigation & Law and intended only for the recipient. If you are not the intended recipient, please delete it and notify the sender. Unauthorized use is prohibited.</p>
                 </td>
             </tr>
         </table>

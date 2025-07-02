@@ -122,7 +122,7 @@
                             </li>
                             <li><a href="{{ url('/contact') }}">Contact</a></li>
                             <li class="nav-button">
-                                <a href="{{ url('/consultation') }}" class="glow-btn">Free Consultation</a>
+                                <a href="{{ url('/contact') }}" class="glow-btn">Free Consultation</a>
                             </li>
                         </ul>
                     </div><!-- end of nav-collapse -->
@@ -149,7 +149,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="#" class="theme-btn">Free Consultation</a>
+                                    <a href="{{ url('/contact') }}" class="theme-btn">Free Consultation</a>
                                 </div>
                             </div>
                         </div> <!-- end slide-inner -->
@@ -167,7 +167,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="#" class="theme-btn">Free Consultation</a>
+                                    <a href="{{ url('/contact') }}" class="theme-btn">Free Consultation</a>
                                 </div>
                             </div>
                         </div> <!-- end slide-inner -->
@@ -185,7 +185,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="#" class="theme-btn">Free Consultation</a>
+                                    <a href="{{ url('/contact') }}" class="theme-btn">Free Consultation</a>
                                 </div>
                             </div>
                         </div> <!-- end slide-inner -->
@@ -203,7 +203,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                                 <div data-swiper-parallax="500" class="slide-btns">
-                                    <a href="#" class="theme-btn">Free Consultation</a>
+                                    <a href="{{ url('/contact') }}" class="theme-btn">Free Consultation</a>
                                 </div>
                             </div>
                         </div> <!-- end slide-inner -->
@@ -270,7 +270,7 @@
                     <div class="col col-lg-3 col-sm-6">
                         <div class="info-col">
                             <h4>Some Key Points about our Legal Services from Hossain Litigation</h4>
-                            <a href="#" class="theme-btn-s2">Contact with us</a>
+                            <a href="{{ url('/contact') }}" class="theme-btn-s2">Contact with us</a>
                         </div>
                     </div>
                     <div class="col col-lg-3 col-sm-6">
@@ -541,7 +541,8 @@
                     </div>
 
                     <div class="contact-form">
-                        <form method="post" class="contact-validation-active" id="contact-form-main">
+                        <form method="post" class="contact-validation-active" action="{{ url('/contact/mail') }}" >
+                            @csrf
                             <div>
                                 <input type="text" class="form-control" name="name" id="name" placeholder="Name*">
                             </div>
@@ -592,31 +593,24 @@
                             <span>Latest Blog</span>
                             <h2>Check Our Latest Tips & News</h2>
                             <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nuncIt showed a lady fitted</p>
-                            <a href="#" class="theme-btn">More Blog Post</a>
+                            <a href="{{ url('/blogs') }}" class="theme-btn">More Blog Post</a>
                         </div>
                     </div>
                     <div class="col col-lg-8">
                         <div class="blog-grids clearfix">
+                            @foreach($blogs as $blog)
                             <div class="grid">
                                 <div class="entry-media">
-                                    <img src="{{ asset('assets/images/blog/img-1.jpg') }}" alt>
+                                    <img src="{{ asset($blog->featured_image) }}" alt>
                                 </div>
                                 <div class="entry-details">
                                     <div class="cat">Adovcate, Law</div>
-                                    <h3><a href="#">Provide insight into how canna businesspeople can use</a></h3>
-                                    <a href="#" class="read-more">Read More</a>
+                                    <h3><a href="#">{{ $blog->title }}</a></h3>
+                                    <a href="{{ url('/blog-single-fullwidth/' . \Illuminate\Support\Str::slug($blog->blogCategories[0]->name) . '/' . $blog->slug) }}" class="read-more">Read More</a>
                                 </div>
                             </div>
-                            <div class="grid">
-                                <div class="entry-media">
-                                    <img src="{{ asset('assets/images/blog/img-2.jpg') }}" alt>
-                                </div>
-                                <div class="entry-details">
-                                    <div class="cat">Adovcate, Law</div>
-                                    <h3><a href="#">Canna Law Blog is a forum for discussing the practical</a></h3>
-                                    <a href="#" class="read-more">Read More</a>
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>
@@ -691,15 +685,15 @@
                                     <h3>Useful Links</h3>
                                 </div>
                                 <ul>
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">Our services</a></li>
-                                    <li><a href="#">Contact us</a></li>
-                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="{{ url('/about') }}">About us</a></li>
+                                    <li><a href="{{ url('/services') }}">Our services</a></li>
+                                    <li><a href="{{ url('/contact') }}">Contact us</a></li>
+                                    <li><a href="{{ url('/blogs') }}">Blog</a></li>
                                 </ul>
                                 <ul>
                                     <li><a href="#">Testimonials</a></li>
-                                    <li><a href="#">Case Studies</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
+                                    <li><a href="{{ url('casestudies') }}">Case Studies</a></li>
+                                    <li><a href="{{ url('/faq') }}">FAQ</a></li>
                                 </ul>
                             </div>
                         </div>

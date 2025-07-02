@@ -120,7 +120,7 @@
                             </li>
                             <li><a href="{{ url('/contact') }}">Contact</a></li>
                             <li class="nav-button">
-                                <a href="{{ url('/consultation') }}" class="glow-btn">Free Consultation</a>
+                                <a href="{{ url('/contact') }}" class="glow-btn">Free Consultation</a>
                             </li>
                         </ul>
                     </div><!-- end of nav-collapse -->

@@ -120,7 +120,7 @@
                             </li>
                             <li><a href="{{ url('/contact') }}">Contact</a></li>
                             <li class="nav-button">
-                                <a href="{{ url('/consultation') }}" class="glow-btn">Free Consultation</a>
+                                <a href="{{ url('/contact') }}" class="glow-btn">Free Consultation</a>
                             </li>
                         </ul>
                     </div><!-- end of nav-collapse -->
@@ -323,15 +323,15 @@
                                     <h3>Useful Links</h3>
                                 </div>
                                 <ul>
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">Our services</a></li>
-                                    <li><a href="#">Contact us</a></li>
-                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="{{ url('/about') }}">About us</a></li>
+                                    <li><a href="{{ url('/services') }}">Our services</a></li>
+                                    <li><a href="{{ url('/contact') }}">Contact us</a></li>
+                                    <li><a href="{{ url('/blogs') }}">Blog</a></li>
                                 </ul>
                                 <ul>
                                     <li><a href="#">Testimonials</a></li>
-                                    <li><a href="#">Case Studies</a></li>
-                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="{{ url('casestudies') }}">Case Studies</a></li>
+                                    <li><a href="{{ url('/faq') }}">FAQ</a></li>
                                 </ul>
                             </div>
                         </div>
