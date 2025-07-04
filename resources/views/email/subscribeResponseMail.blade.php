@@ -10,7 +10,7 @@
         <!-- Header Section -->
         <tr>
             <td align="center" style="background-color: #f4f8fc; padding: 20px;">
-                <h1 style="font-size: 24px; font-weight: bold; margin: 0;"><span style="font-weight: bold; color: #007bff;">VISER</span> X</h1>
+                <h1 style="font-size: 24px; font-weight: bold; margin: 0;"><span style="font-weight: bold; color: #007bff;">Hossain Litigation & Law</span></h1>
                 <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">Empowering Digital Presence</p>
             </td>
         </tr>

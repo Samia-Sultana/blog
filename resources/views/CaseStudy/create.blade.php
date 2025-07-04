@@ -96,8 +96,8 @@
                             @enderror
                         </div>
                         <div class="col-12 col-sm-6 mb-1">
-                            <label class="form-label" for="sort_desc">Sort Description <span class="text-danger">*</span></label>
-                            <textarea required class="form-control" id="exampleFormControlTextarea1" placeholder="Enter sort description ( length will be 118 - 220 characters )" name="sort_desc" rows="3"></textarea>
+                            <label class="form-label" for="sort_desc">Short Description <span class="text-danger">*</span></label>
+                            <textarea required class="form-control" id="exampleFormControlTextarea1" placeholder="Enter short description ( length will be 118 - 220 characters )" name="sort_desc" rows="3"></textarea>
                         </div>
 
 

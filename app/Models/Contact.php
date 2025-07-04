@@ -16,6 +16,5 @@ class Contact extends Model
         'company',
         'subject',
         'message',
-        'country',
     ];
 }

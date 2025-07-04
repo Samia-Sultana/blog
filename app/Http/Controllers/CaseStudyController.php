@@ -10,7 +10,11 @@ class CaseStudyController extends Controller
 
     private CaseStudyRepository $repository;
 
-    private $categories = ['SEO', 'Content Writing', 'Software Development'];
+     private $categories = [
+    'SEO'
+    ,'Content Writing'
+    ,'Software Development'
+];
 
     private function redirectRouteConditionWise($category,$id,$update = false){
 

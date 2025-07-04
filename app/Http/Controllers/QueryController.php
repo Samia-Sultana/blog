@@ -37,7 +37,6 @@ class QueryController extends Controller
                 'email' => 'required',
                 'phone' => 'required',
                 'message' => 'required',
-                'company' => 'required',
                 'subject' => 'required',
             ]);
         } catch (\Exception $e) {

@@ -13,7 +13,6 @@ class Query extends Model
         'name',
         'email',
         'phone',
-        'company',
         'subject',
         'message',
         'status'

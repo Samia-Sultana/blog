@@ -231,7 +231,7 @@
                     </div>
                     <div class="col col-md-4">
                         <div class="blog-sidebar">
-                            <div class="widget search-widget">
+                            {{-- <div class="widget search-widget">
                                 <h3>Search</h3>
                                 <form>
                                     <div>
@@ -239,7 +239,7 @@
                                         <button type="submit"><i class="ti-search"></i></button>
                                     </div>
                                 </form>
-                            </div>
+                            </div> --}}
                             <div class="widget category-widget">
                                 <h3>Categories</h3>
                                 <ul>

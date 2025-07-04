@@ -34,9 +34,7 @@
             <h5 class="card-title"><strong>Name:</strong> {{ $contact->name }}</h5>
             <p class="card-text"><strong>Email:</strong> {{ $contact->email }}</p>
             <p class="card-text"><strong>Phone:</strong> {{ $contact->phone }}</p>
-            <p class="card-text"><strong>Company:</strong> {{ $contact->company }}</p>
             <p class="card-text"><strong>Subject:</strong> {{ $contact->subject }}</p>
-            <p class="card-text"><strong>Sub Subject:</strong> {{ $contact->subsubject }}</p>
             <p class="card-text"><strong>Message:</strong> {{ $contact->message }}</p>
             <div class="card-text d-flex">
                 <strong style="margin-right: 10px; margin-bottom: 15px;">Status:</strong>

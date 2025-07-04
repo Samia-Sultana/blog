@@ -23,7 +23,7 @@ class ContactController extends Controller
                 'phone' => 'required|string|max:255',
                 'email' => 'nullable|email|max:255',
                 'subject' => 'nullable|string|max:255',
-                'message' => 'nullable|string|max:255',
+                'message' => 'required|string|max:255',
             ]);
 
 
@@ -57,7 +57,7 @@ class ContactController extends Controller
         <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0px -5px 14px 5px rgba(0, 0, 0, 0.1);">
             <tr>
                 <td align="center" style="background-color: #f4f8fc; padding: 20px;">
-                    <h1 style="font-size: 24px; font-weight: bold; margin: 0;"><span style="font-weight: bold; color: #007bff;">VISER</span> X</h1>
+                    <h1 style="font-size: 24px; font-weight: bold; margin: 0;"><span style="font-weight: bold; color: #007bff;">Hossain Litigation & Law</span></h1>
                     <p style="margin: 5px 0 0 0; font-size: 16px; color: #666;">Empowering Digital Presence</p>
                 </td>
             </tr>
@@ -92,7 +92,6 @@ class ContactController extends Controller
         $name = $request->input('name');
         $email = $request->input('email');
         $phone = $request->input('phone');
-        $companyName = $request->input('company_name');
         $startDate = $request->input('from_date');
         $endDate = $request->input('to_date');
         $status = $request->input('status');
@@ -110,9 +109,7 @@ class ContactController extends Controller
                     ->when($phone, function ($q) use ($phone) {
                         $q->where('phone', 'like', "%{$phone}%");
                     })
-                    ->when($companyName, function ($q) use ($companyName) {
-                        $q->where('company', 'like', "%{$companyName}%");
-                    })
+
                     ->when($startDate, function ($q) use ($startDate) {
                         $q->whereDate('created_at', '>=', $startDate);
                     })

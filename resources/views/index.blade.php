@@ -156,7 +156,7 @@
                     </div> <!-- end swiper-slide -->
 
                     <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="{{ asset('assets/images/slider/contract.webp') }}" data-text="Contractual Law Plan<h4>Contractual Disputes</h4>">
+                        <div class="slide-inner slide-bg-image" data-background="{{ asset('assets/images/slider/contract.webp') }}" data-text="<i class='fi flaticon-paper-plane'></i>Contractual Law Plan<h4>Contractual Disputes</h4>">
                             <div class="slide-overlay"></div>
                             <div class="container">
                                 <div data-swiper-parallax="300" class="slide-title">
@@ -174,7 +174,7 @@
                     </div> <!-- end swiper-slide -->
 
                     <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="{{ asset('assets/images/slider/construction.webp') }}" data-text="Construction Law Plan<h4>Construction Disputes & Liens</h4>">
+                        <div class="slide-inner slide-bg-image" data-background="{{ asset('assets/images/slider/construction.webp') }}" data-text="<i class='fi flaticon-architecture-and-city'></i>Construction Law Plan<h4>Construction Disputes & Liens</h4>">
                             <div class="slide-overlay"></div>
                             <div class="container">
                                 <div data-swiper-parallax="300" class="slide-title">

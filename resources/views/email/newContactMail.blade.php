@@ -10,7 +10,7 @@
         <!-- Header Section -->
         <tr>
             <td align="center" style="background-color: #f4f8fc; padding: 20px;">
-                <h1 style="font-size: 24px; font-weight: bold; margin: 0;"><span style="font-weight: bold; color: #007bff;">VISER</span> X</h1>
+                <h1 style="font-size: 24px; font-weight: bold; margin: 0;"><span style="font-weight: bold; color: #007bff;">Hossain Litigation & Law</span> </h1>
                 <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">Empowering Digital Presence</p>
             </td>
         </tr>
@@ -27,9 +27,7 @@
                         <tr><td style="font-weight: bold; padding: 8px 0;">Name:</td><td>{{$contact->name}}</td></tr>
                         <tr><td style="font-weight: bold; padding: 8px 0;">Email:</td><td>{{$contact->email}}</td></tr>
                         <tr><td style="font-weight: bold; padding: 8px 0;">Phone:</td><td>{{$contact->phone}}</td></tr>
-                        <tr><td style="font-weight: bold; padding: 8px 0;">Company:</td><td>{{$contact->company}}</td></tr>
                         <tr><td style="font-weight: bold; padding: 8px 0;">Subject:</td><td>{{$contact->subject}}</td></tr>
-                        <tr><td style="font-weight: bold; padding: 8px 0;">Sub-Subject:</td><td>{{$contact->subsubject}}</td></tr>
                         <tr><td style="font-weight: bold; padding: 8px 0;">Message:</td><td>{{$contact->message}}</td></tr>
                     </table>
 

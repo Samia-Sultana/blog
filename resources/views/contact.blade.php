@@ -206,7 +206,7 @@
                                 </select>
                             </div>
                             <div class="fullwidth">
-                                <textarea class="form-control" name="note"  id="note" placeholder="Case Description..."></textarea>
+                                <textarea class="form-control" name="message"  id="note" placeholder="Case Description..."></textarea>
                             </div>
                             <div class="submit-area">
                                     <button type="submit" class="theme-btn">Submit It Now</button>

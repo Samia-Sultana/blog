@@ -37,7 +37,7 @@ class CompanyDeckConfirmationMail extends Mailable implements ShouldQueue
     public function envelope()
     {
         return new Envelope(
-            subject: 'VISER X Company Deck | Empowering Digital Presence',
+            subject: 'Hossain Litigation & Law Company Deck | Empowering Digital Presence',
         );
     }
 
@@ -47,6 +47,6 @@ class CompanyDeckConfirmationMail extends Mailable implements ShouldQueue
     public function build()
     {
         return $this->view('email.companyDeckMail')
-                    ->subject('VISER X Company Deck | Empowering Digital Presence');
+                    ->subject('Hossain Litigation & Law Company Deck | Empowering Digital Presence');
     }
 }
