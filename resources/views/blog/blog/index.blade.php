@@ -299,7 +299,7 @@
         const cat = slugify(blog?.blog_categories[0]?.name)
         const slug = blog?.slug
         const baseUrl = "<?php echo env('FRONTEND_URL'); ?>";
-        const currentUrl = baseUrl + '/blog/' + cat + '/home' + slug
+        const currentUrl = baseUrl + '/blog/' + cat + '/' + slug
 
         var tempInput = document.createElement("input");
         tempInput.value = currentUrl;

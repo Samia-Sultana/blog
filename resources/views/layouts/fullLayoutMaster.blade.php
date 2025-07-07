@@ -37,7 +37,7 @@
 <body
   class="vertical-layout vertical-menu-modern {{ $configData['bodyClass'] }} {{ $configData['theme'] === 'dark' ? 'dark-layout' : '' }} {{ $configData['blankPageClass'] }} blank-page"
   data-menu="vertical-menu-modern" data-col="blank-page" data-framework="laravel"
-  data-asset-path="{{ asset('/home') }}">
+  data-asset-path="{{ asset('/') }}">
 
   <!-- BEGIN: Content-->
   <div class="app-content content {{ $configData['pageClass'] }}">

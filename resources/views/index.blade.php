@@ -90,13 +90,13 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="{{ url('/home') }}"><img src="{{ asset('assets/images/logo.png') }}" alt></a>
+                        <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('assets/images/logo.png') }}" alt></a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse navbar-right navigation-holder">
                         <button class="close-navbar"><i class="ti-close"></i></button>
                         <ul class="nav navbar-nav">
                             <li class="active">
-                                <a href="{{ url('/home') }}">Home</a>
+                                <a href="{{ url('/') }}">Home</a>
                             </li>
                             <li class="nav navbar-nav">
                                 <a href="{{ url('/about') }}">About</a>
