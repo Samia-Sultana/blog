@@ -11,28 +11,34 @@ class CaseStudyController extends Controller
     private CaseStudyRepository $repository;
 
      private $categories = [
-    'SEO'
-    ,'Content Writing'
-    ,'Software Development'
+        'civil-litigation',
+        'commercial-litigation',
+        'construction-litigation',
+        'contractual-disputes',
+        'defamation',
+        'immigration-aw',
+        'mortgage-defense',
+        'real-estate-litigation'
+
 ];
 
-    private function redirectRouteConditionWise($category,$id,$update = false){
+    // private function redirectRouteConditionWise($category,$id,$update = false){
 
-        // dd($category,$id,$update);
-        switch ($category) {
-            case 'SEO':
-                return $update ? redirect()->route('case.seo.edit', $id) : redirect()->route('case.seo', $id);
-                break;
-            case 'Content Writing':
-                return $update ? redirect()->route('case.content.edit', $id) : redirect()->route('case.content', $id);
-                break;
-            case 'Software Development':
-                return $update ? redirect()->route('case.software.edit', $id) : redirect()->route('case.software', $id);
-                break;
-            default:
-                return redirect()->route('case-study');
-        }
-    }
+    //     // dd($category,$id,$update);
+    //     switch ($category) {
+    //         case 'SEO':
+    //             return $update ? redirect()->route('case.seo.edit', $id) : redirect()->route('case.seo', $id);
+    //             break;
+    //         case 'Content Writing':
+    //             return $update ? redirect()->route('case.content.edit', $id) : redirect()->route('case.content', $id);
+    //             break;
+    //         case 'Software Development':
+    //             return $update ? redirect()->route('case.software.edit', $id) : redirect()->route('case.software', $id);
+    //             break;
+    //         default:
+    //             return redirect()->route('case-study');
+    //     }
+    // }
 
     public function __construct(CaseStudyRepository $repository)
     {

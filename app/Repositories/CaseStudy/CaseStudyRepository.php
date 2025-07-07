@@ -71,7 +71,16 @@ class CaseStudyRepository
                 ->where('ispublished', 1)
                 ->paginate(6);
             }
-            $categories = [ 'SEO', 'Content Writing','Software Development'];
+            $categories = [
+                'Civil Litigation',
+        'Commercial Litigation',
+        'Construction Litigation',
+        'Contractual Disputes',
+        'Defamation',
+        'Immigration Law',
+        'Mortgage Defense',
+        'Real Estate Litigation'
+            ];
             return [
                 'status' => 'success',
                 'message' => 'Case Studies fetched successfully.',
@@ -155,7 +164,7 @@ class CaseStudyRepository
             }
 
             $v = $request->all();
-            $v['page_name'] =  $this->checkPageName($v['category']);
+            $v['page_name'] =  $v['category'];
             $v['featured_image'] = $imagePath;
 
             $data = $this->model->create($v);
@@ -207,7 +216,7 @@ class CaseStudyRepository
                 $this->imageRemoveFromDir($data->featured_image);
             }
 
-            $v['page_name'] =  $this->checkPageName($v['category']);
+            $v['page_name'] =  $v['category'];
 
             $data->update($v);
             return $data;
