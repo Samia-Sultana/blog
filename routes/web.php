@@ -11,7 +11,7 @@ use App\Http\Controllers\StaterkitController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Auth\AuthenticationController;
 
-Route::get('/home', [HomeController::class, 'index'])->name('client.home');
+Route::get('/', [HomeController::class, 'index'])->name('client.home');
 
 Route::get('/about', function () {
     return view('about');
@@ -121,8 +121,9 @@ require __DIR__ . '/export/export.php';
 
 Route::get('/logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->prefix('admin')->group(function () {
 
     Route::get('/', [StaterkitController::class, 'home'])->name('home');
 
 });
+

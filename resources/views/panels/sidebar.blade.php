@@ -7,7 +7,7 @@ $configData = Helper::applClasses();
   <div class="navbar-header">
     <ul class="nav navbar-nav flex-row">
       <li class="nav-item me-auto">
-        <a class="navbar-brand" href="{{ url('/home') }}">
+        <a class="navbar-brand" href="{{ url('/') }}">
           <span>
            <img src="{{ asset('/assets/images/logo.png') }}" class="img-fluid"  style="height: 38px; padding-top: 5px;"/>
           </span>
