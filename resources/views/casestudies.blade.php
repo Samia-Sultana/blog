@@ -159,21 +159,29 @@
             </div> <!-- end container -->
             <div class="content-area">
                 <div class="case-studies-grids case-studies-slider">
-                    @foreach ($data['data'] as $caseStudy )
-                     <div class="grid">
-                        <div class="img-holder">
-                            <img src="{{ asset( $caseStudy->featured_image)}}" alt>
-                        </div>
-                        <div class="overlay">
-                            <div class="content">
-                                <span class="cat">{{ $caseStudy->category }}</span>
-                                <h3><a href="{{ url('/casestudy-details/' . \Illuminate\Support\Str::slug($caseStudy->category) . '/' . $caseStudy->slug) }}">{{ $caseStudy->title }}</a></h3>
-                                <p>{{ $caseStudy->sort_desc }}</p>
-                                <a href="{{ url('/casestudy-details/' . \Illuminate\Support\Str::slug($caseStudy->category) . '/' . $caseStudy->slug) }}"><i class="ti-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
+                   @foreach ($data['data'] as $caseStudy )
+    @php
+        $caseStudyUrl = url('/casestudy-details/' . \Illuminate\Support\Str::slug($caseStudy->category) . '/' . $caseStudy->slug);
+    @endphp
+
+    <a href="{{ $caseStudyUrl }}" class="case-grid-link">
+        <div class="grid">
+            <div class="img-holder">
+                <img src="{{ asset($caseStudy->featured_image) }}" alt="{{ $caseStudy->title }}">
+            </div>
+            <div class="overlay">
+                <div class="content">
+                    <span class="cat">{{ $caseStudy->category }}</span>
+                    <h3>{{ $caseStudy->title }}</h3>
+                    <p>{{ $caseStudy->sort_desc }}</p>
+                    <i class="ti-arrow-circle-right"></i>
+                </div>
+            </div>
+        </div>
+    </a>
+@endforeach
+
+
 
 
                 </div>

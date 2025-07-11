@@ -7,8 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="irstheme">
+    <meta name="title" content="{{ $blog['title'] }}">
 
-    <title> Juristic - Lawyers and Law Firm HTML Template </title>
+    {{-- <title> Juristic - Lawyers and Law Firm HTML Template </title> --}}
+
+    <title> {{ $blog['title'] }} </title>
 
     <link href="{{ asset('assets/css/themify-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/flaticon.css') }}" rel="stylesheet">
@@ -216,8 +219,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col col-xs-12">
-                        <h2>Blog single full width</h2>
-                        <p>Gregor then turned to look out the window at the weather</p>
+                        <h2>{{ $blog['title'] }}</h2>
                     </div>
                 </div> <!-- end row -->
             </div> <!-- end container -->

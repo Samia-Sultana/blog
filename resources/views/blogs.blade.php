@@ -152,25 +152,32 @@
                     <div class="col col-md-8">
                         <div class="blog-content">
                             @foreach ($blogs['blogs'] as $blog)
-                            <div class="post format-standard-image">
-                                <div class="entry-media">
-                                    <img src="{{ asset($blog->featured_image) }}" alt>
-                                </div>
-                                <div class="entry-details">
-                                    <div class="cat">Adovcate, Law</div>
-                                    <h3><a href="#">{{ $blog->title }}</a></h3>
-                                    <p>{{ $blog->short_desc}}</p>
+    @php
+        $blogUrl = url('/blog/' . \Illuminate\Support\Str::slug($blog->blogCategories[0]->name) . '/' . $blog->slug);
+    @endphp
 
+    <div class="post format-standard-image">
+        <div class="entry-media">
+            <a href="{{ $blogUrl }}">
+                <img src="{{ asset($blog->featured_image) }}" alt="{{ $blog->title }}">
+            </a>
+        </div>
+        <div class="entry-details">
+            <div class="cat">Advocate, Law</div>
+            <h3>
+                <a href="{{ $blogUrl }}">{{ $blog->title }}</a>
+            </h3>
+            <p>{{ $blog->short_desc }}</p>
 
-                                    <a href="{{ url('/blog-single-fullwidth/' . \Illuminate\Support\Str::slug($blog->blogCategories[0]->name) . '/' . $blog->slug) }}" class="read-more">Read More</a>
+            <a href="{{ $blogUrl }}" class="read-more">Read More</a>
+        </div>
+        <div class="entry-meta">
+            <span>By: <a href="#">{{ $blog->authors['name'] }}</a></span>
+            <span>Date: {{ $blog->published_at }}</span>
+        </div>
+    </div>
+@endforeach
 
-                                </div>
-                                <div class="entry-meta">
-                                    <span>By: <a href="#">{{ $blog->authors['name'] }}</a> </span>
-                                    <span>Date: {{ $blog->published_at }} </span>
-                                </div>
-                            </div>
-                            @endforeach
 
                             @if ($blogs['blogs']->hasPages())
     <div class="pagination-wrapper pagination-wrapper-left">
@@ -260,7 +267,7 @@
                                             <img src="{{ asset($blog->featured_image) }}" alt>
                                         </div>
                                         <div class="details">
-                                            <h4><a href="{{ url('/blog-single-fullwidth/' . \Illuminate\Support\Str::slug($blog->blogCategories[0]->name) . '/' . $blog->slug) }}">{{ $blog->title }}</a></h4>
+                                            <h4><a href="{{ url('/blog/' . \Illuminate\Support\Str::slug($blog->blogCategories[0]->name) . '/' . $blog->slug) }}">{{ $blog->title }}</a></h4>
                                             <span class="date"><i class="ti-timer"></i>{{ $blog->published_at }}</span>
                                         </div>
                                     </div>

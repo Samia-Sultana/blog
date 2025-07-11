@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from themegeniuslab.com/html/juristic-live-cp/project-single.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 May 2025 06:44:36 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="irstheme">
-    <meta name="title" content="{{ $data['data']->title }}">
 
-    <title> {{  $data['data']->title  }} </title>
+    <!-- Meta tags for FAQ page -->
+    <title>Thank You for Submission | Hossain Litigation & Law Professionals Corporation</title>
+    <meta name="description" content="Find answers to common questions about our legal services, processes, and expertise at Hossain Litigation & Law Professionals Corporation. Get clear information on civil, commercial, immigration, and real estate law.">
+    <meta name="keywords" content="Legal FAQ, Law Questions, Legal Help, Hossain Litigation, Law Professionals, Legal Services, Law Firm FAQ, Legal Information, Client Questions, Legal Support">
 
-
-
-    <link href="{{ asset('assets/css/themify-icons.css') }}" rel="stylesheet">
+       <link href="{{ asset(path: 'assets/css/themify-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/flaticon.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
@@ -89,39 +88,39 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('assets/images/logo.png') }}" alt></a>
+                        <a class="navbar-brand" href="index.html"><img src="{{ asset('assets/images/logo.png') }}" alt></a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse navbar-right navigation-holder">
                         <button class="close-navbar"><i class="ti-close"></i></button>
                         <ul class="nav navbar-nav">
-                            <li class="active">
-                                <a href="{{ url('/') }}">Home</a>
+                            <li>
+                                <a href="index.html">Home</a>
                             </li>
                             <li class="nav navbar-nav">
-                                <a href="{{ url('/about') }}">About</a>
+                                <a href="about.html">About</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="{{ url('/services') }}">Services</a>
+                                <a href="services.html">Services</a>
                                 <ul class="sub-menu">
-                                    <li><a href="{{ url('/civillitigation') }}">Civil Litigation</a></li>
-                                    <li><a href="{{ url('/commerciallitigation') }}">Commercial Litigation</a></li>
-                                    <li><a href="{{ url('/realestatelitigation') }}">Real State Litigation</a></li>
-                                    <li><a href="{{ url('/contractualdisputes') }}">Contractual Disputes</a></li>
-                                    <li><a href="{{ url('/constructionlitigation') }}">Construction Litigation</a></li>
-                                    <li><a href="{{ url('/immigrationlaw') }}">Immigration Law</a></li>
-                                    <li><a href="{{ url('/mortgagedefense') }}">Mortgage Defense</a></li>
-                                    <li><a href="{{ url('/defamation') }}">Defamation</a></li>
+                                    <li><a href="civillitigation.html">Civil Litigation</a></li>
+                                    <li><a href="commerciallitigation.html">Commercial Litigation</a></li>
+                                    <li><a href="realestatelitigation.html">Real State Litigation</a></li>
+                                    <li><a href="contractualdisputes.html">Contractual Disputes</a></li>
+                                    <li><a href="constructionlitigation.html">Construction Litigation</a></li>
+                                    <li><a href="immigrationlaw.html">Immigration Law</a></li>
+                                    <li><a href="mortgagedefense.html">Mortgage Defense</a></li>
+                                    <li><a href="defamation.html">Defamation</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="{{ url('/team') }}">Team</a>
+                                <a href="team.html">Team</a>
                             </li>
                             <li>
-                                <a href="{{ url('/blogs') }}">Blogs</a>
+                                <a href="blogs.html">Blogs</a>
                             </li>
-                            <li><a href="{{ url('/contact') }}">Contact</a></li>
+                            <li><a href="contact.html">Contact</a></li>
                             <li class="nav-button">
-                                <a href="{{ url('/contact') }}" class="glow-btn">Free Consultation</a>
+                                <a href="consultation.html" class="glow-btn">Free Consultation</a>
                             </li>
                         </ul>
                     </div><!-- end of nav-collapse -->
@@ -138,88 +137,33 @@
             <div class="container">
                 <div class="row">
                     <div class="col col-xs-12">
-                        <h2>{{  $data['data']->title }}</h2>
+                        <h2>Thank You</h2>
+                        <p>Your message has been successfully submitted.</p>
                     </div>
                 </div> <!-- end row -->
             </div> <!-- end container -->
         </section>
         <!-- end page-title -->
 
-        <!-- start project-single-section -->
-        <section class="project-single-section section-padding">
+        <!-- start thank-you-message section -->
+        <section class="faq-pg-section section-padding">
             <div class="container">
                 <div class="row">
-                    <div class="col col-md-6">
-                        <div class="img-holder">
-                            <img src="{{ asset($data['data']->featured_image) }}" alt>
-                        </div>
-                    </div>
-                    <div class="col col-md-6">
-                        <div class="project-details">
-                            <h2>{{ $data['data']->title }}</h2>
-                           <p>{{ $data['data']->description  }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col col-xs-12">
-                        <div class="project-single-tab clearfix">
-                            <ul class="nav">
-                                <li class="active">
-                                    <a href="#precautions" data-toggle="tab">Challenge</a>
-                                </li>
-                                <li>
-                                    <a href="#intelligence" data-toggle="tab">Solution</a>
-                                </li>
-                                <li>
-                                    <a href="#specializations" data-toggle="tab">Results</a>
-                                </li>
-                            </ul>
-
-                            <div class="tab-content">
-                                <div class="tab-pane fade in active" id="precautions">
-                                    <p>{{ $data['data']->challenge }}</p>
-                                </div>
-                                <div class="tab-pane fade" id="intelligence">
-                                    <p>{{ $data['data']->solution }}</p>
-                                </div>
-                                <div class="tab-pane fade" id="specializations">
-                                    <p>{{ $data['data']->results }}</p>
-                                </div>
+                    <div class="col col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 text-center">
+                        <div class="section-title-s3">
+                            <div class="icon">
+                                <i class="fi flaticon-suitcase"></i>
                             </div>
+                            <h2>Thank You!</h2>
+                            <p>We appreciate you getting in touch. Our team will review your message and respond as soon as possible.</p>
+                            <br>
+                            <p><a href="{{ url('/') }}" class="btn btn-primary">Back to Home</a></p>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col col-xs-12">
-                        <div class="related-case-studies">
-                            <h2>Related Case Studies</h2>
-                            <div class="case-studies-grids">
-                                @foreach ($data['related_case_studies'] as $caseStudy)
-                                   <div class="grid">
-                                    <div class="img-holder">
-                                        <img src="{{ asset($caseStudy->featured_image) }}" alt>
-                                    </div>
-                                    <div class="overlay">
-                                        <div class="content">
-                                            <p class="cat">{{ $caseStudy->category }}</p>
-                                            <h3><a href="{{ url('/casestudy-details/' . \Illuminate\Support\Str::slug($caseStudy->category) . '/' . $caseStudy->slug) }}">{{ $caseStudy->sort_desc }}</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </div> <!-- end container -->
+            </div>
         </section>
-        <!-- end project-single-section -->
+        <!-- end thank-you-message section -->
 
 
         <!-- start site-footer -->
@@ -231,27 +175,14 @@
                             <div class="social-newsletter-content clearfix">
                                 <div class="social-area">
                                     <ul class="clearfix">
-                                        <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                        <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                        <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="ti-instagram"></i></a></li>
+                                        <li><a href="https://www.facebook.com/hossainlitigationca"><i class="ti-facebook"></i></a></li>
+                                        <li><a href="https://x.com/hossainlitigation"><i class="ti-twitter-alt"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/company/hossainlitigationca"><i class="ti-linkedin"></i></a></li>
+                                        <li><a href="https://instagram.com/hossainlitigationca"><i class="ti-instagram"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="logo-area">
                                     <img src="{{ asset('assets/images/footer-logo.png') }}" alt>
-                                </div>
-                                <div class="newsletter-area">
-                                    <div class="inner">
-                                        <h3>Newsletter</h3>
-                                        <form>
-                                            <div class="input-1">
-                                                <input type="email" class="form-control" placeholder="Email Address *" required="">
-                                            </div>
-                                            <div class="submit clearfix">
-                                                <button type="submit"><i class="fi flaticon-paper-plane"></i></button>
-                                            </div>
-                                        </form>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -287,14 +218,13 @@
                                 <div class="widget-title">
                                     <h3>Useful Links</h3>
                                 </div>
-                                 <ul>
+                                <ul>
                                     <li><a href="{{ url('/about') }}">About us</a></li>
                                     <li><a href="{{ url('/services') }}">Our services</a></li>
                                     <li><a href="{{ url('/contact') }}">Contact us</a></li>
                                     <li><a href="{{ url('/blogs') }}">Blog</a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="#">Testimonials</a></li>
                                     <li><a href="{{ url('casestudies') }}">Case Studies</a></li>
                                     <li><a href="{{ url('/faq') }}">FAQ</a></li>
                                 </ul>
@@ -346,6 +276,7 @@
         </div>
         </footer>
         <!-- end site-footer -->
+
     </div>
     <!-- end of page-wrapper -->
 
@@ -353,7 +284,7 @@
 
     <!-- All JavaScript files
     ================================================== -->
-        <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+   <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 
     <!-- Plugins for this template -->

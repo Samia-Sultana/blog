@@ -41,7 +41,7 @@ class ContactController extends Controller
             Mail::to(env('CONTACT_EMAIL'))->cc($ccList)->send(new ViserXMail($data, "Request For Consultation: Hossain Litigation and Law - {$contact->subject}"));
 
 
-           return redirect('/')
+           return redirect('/thank-you')
                ->with('success', 'Thanks! Your message has been sent.');
 
         } catch (\Exception $e) {

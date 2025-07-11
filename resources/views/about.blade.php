@@ -238,7 +238,7 @@
             </div>
         </div>
         <div class="row" style="margin-top: 30px;">
-            <div class="col col-lg-3 col-sm-6">
+            <div class="col col-lg-2 col-sm-6">
                 <div class="feature-grid">
                     <div class="feature-icon">
                         <img src="{{ asset('assets/images/icons/handshake.svg') }}" alt="Client-Centered Approach" style="width:48px;height:48px;">
@@ -247,7 +247,7 @@
                     <p>We prioritize your goals and keep you informed every step of the way, ensuring your needs are always at the forefront.</p>
                 </div>
             </div>
-            <div class="col col-lg-3 col-sm-6">
+            <div class="col col-lg-2 col-sm-6">
                 <div class="feature-grid">
                     <div class="feature-icon">
                         <img src="{{ asset('assets/images/icons/team.svg') }}" alt="Client-Centered Approach" style="width:48px;height:48px;">
@@ -256,7 +256,7 @@
                     <p>Our team brings years of experience in Canadian civil and immigration law, with a strong track record of success.</p>
                 </div>
             </div>
-            <div class="col col-lg-3 col-sm-6">
+            <div class="col col-lg-4 col-sm-6">
                 <div class="feature-grid">
                     <div class="feature-icon">
                         <img src="{{ asset('assets/images/icons/contract.svg') }}" alt="Client-Centered Approach" style="width:48px;height:48px;">
@@ -265,7 +265,7 @@
                     <p>No hidden charges—just honest, clear legal representation with straightforward pricing and communication.</p>
                 </div>
             </div>
-            <div class="col col-lg-3 col-sm-6">
+            <div class="col col-lg-2 col-sm-6">
                 <div class="feature-grid">
                     <div class="feature-icon">
                         <img src="{{ asset('assets/images/icons/translation.svg') }}" alt="Client-Centered Approach" style="width:48px;height:48px;">
@@ -274,7 +274,7 @@
                     <p>We proudly support clients in English, Bengali, Hindi, and more, making legal help accessible to all.</p>
                 </div>
             </div>
-            <div class="col col-lg-3 col-sm-6" style="margin-top:30px;">
+            <div class="col col-lg-2 col-sm-6" style="margin-top:30px;">
                 <div class="feature-grid">
                     <i class="fi flaticon-clock"></i>
                     <h3>Timely & Responsive</h3>

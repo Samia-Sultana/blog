@@ -14,6 +14,9 @@
 
     <link href="{{ asset('assets/css/themify-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/flaticon.css') }}" rel="stylesheet">
+
+    <link rel="apple-touch-icon" href="{{ asset('images/ico/favicon.ico') }}">
+
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/owl.carousel.css') }}" rel="stylesheet">
@@ -156,7 +159,7 @@
                     </div> <!-- end swiper-slide -->
 
                     <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="{{ asset('assets/images/slider/contract.webp') }}" data-text="<i class='fi flaticon-paper-plane'></i>Contractual Law Plan<h4>Contractual Disputes</h4>">
+                        <div class="slide-inner slide-bg-image" data-background="{{ asset('assets/images/slider/contract.webp') }}" data-text="<i class='fi flaticon-courthouse'></i>Contractual Law Plan<h4>Contractual Disputes</h4>">
                             <div class="slide-overlay"></div>
                             <div class="container">
                                 <div data-swiper-parallax="300" class="slide-title">
@@ -174,7 +177,7 @@
                     </div> <!-- end swiper-slide -->
 
                     <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="{{ asset('assets/images/slider/construction.webp') }}" data-text="<i class='fi flaticon-architecture-and-city'></i>Construction Law Plan<h4>Construction Disputes & Liens</h4>">
+                        <div class="slide-inner slide-bg-image" data-background="{{ asset('assets/images/slider/construction.webp') }}" data-text="<i class='fi flaticon-mace'></i>Construction Law Plan<h4>Construction Disputes & Liens</h4>">
                             <div class="slide-overlay"></div>
                             <div class="container">
                                 <div data-swiper-parallax="300" class="slide-title">
@@ -192,7 +195,7 @@
                     </div><!-- end swiper-slide -->
 
                     <div class="swiper-slide">
-                        <div class="slide-inner slide-bg-image" data-background="{{ asset('assets/images/slider/real-estate.webp') }}" data-text="<i class='fi flaticon-save-money'></i>Real Estate law plan<h4>Real Estate Litigation</h4>">
+                        <div class="slide-inner slide-bg-image" data-background="{{ asset('assets/images/slider/real-estate.webp') }}" data-text="<i class='fi flaticon-home-3'></i>Real Estate law plan<h4>Real Estate Litigation</h4>">
                             <div class="slide-overlay"></div>
                             <div class="container">
                                 <div data-swiper-parallax="300" class="slide-title">
@@ -429,7 +432,11 @@
                     @foreach ($caseStudies as $caseStudy )
                          <div class="grid">
                         <div class="img-holder">
-                            <img src="{{ asset($caseStudy->featured_image) }}" alt>
+                            <a href="{{ url('/casestudy-details/' . \Illuminate\Support\Str::slug($caseStudy->category) . '/' . $caseStudy->slug) }}">
+
+                                <img src="{{ asset($caseStudy->featured_image) }}" alt>
+                            </a>
+
                         </div>
                         <div class="overlay">
                             <div class="content">
@@ -561,7 +568,7 @@
                                 </select>
                             </div>
                             <div class="fullwidth">
-                                <textarea class="form-control" name="note"  id="note" placeholder="Case Description..."></textarea>
+                                <textarea class="form-control" name="message"  id="message" placeholder="Case Description..."></textarea>
                             </div>
                             <div class="submit-area">
                                 <button type="submit" class="theme-btn-s3">Submit It Now</button>
@@ -601,12 +608,14 @@
                             @foreach($blogs as $blog)
                             <div class="grid">
                                 <div class="entry-media">
-                                    <img src="{{ asset($blog->featured_image) }}" alt>
+                                    <a href="{{ url('/blog/' . \Illuminate\Support\Str::slug($blog->blogCategories[0]->name) . '/' . $blog->slug) }}">
+                <img src="{{ asset($blog->featured_image) }}" alt="{{ $blog->title }}">
+            </a>
                                 </div>
                                 <div class="entry-details">
                                     <div class="cat">Adovcate, Law</div>
-                                    <h3><a href="#">{{ $blog->title }}</a></h3>
-                                    <a href="{{ url('/blog-single-fullwidth/' . \Illuminate\Support\Str::slug($blog->blogCategories[0]->name) . '/' . $blog->slug) }}" class="read-more">Read More</a>
+                                    <h3><a href="{{ url('/blog/' . \Illuminate\Support\Str::slug($blog->blogCategories[0]->name) . '/' . $blog->slug) }}">{{ $blog->title }}</a></h3>
+                                    <a href="{{ url('/blog/' . \Illuminate\Support\Str::slug($blog->blogCategories[0]->name) . '/' . $blog->slug) }}" class="read-more">Read More</a>
                                 </div>
                             </div>
                             @endforeach

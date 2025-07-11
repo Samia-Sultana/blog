@@ -18,7 +18,7 @@ Route::get('/about', function () {
 });
 Route::get('/blogs', [BlogController::class, 'apiIndex'])->name('blogs');
 
-Route::get('/blog-single-fullwidth/{category}/{slug}', [BlogController::class, 'apiShow']);
+Route::get('/blog/{category}/{slug}', [BlogController::class, 'apiShow']);
 
 Route::get('/blog-single-left-sidebar', function () {
     return view('blog-single-left-sidebar');
@@ -28,6 +28,10 @@ Route::get('/contact', function () {
 });
 
 Route::post('/contact/mail', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/thank-you', function () {
+    return view('thankyou');
+})->name('thank.you');
+
 Route::get('/blog-single', function () {
     return view('blog-single');
 });
